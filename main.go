@@ -7,7 +7,8 @@ import (
 )
 
 func main() {
-	files.WriteFile("Hello!", "file.txt")
+	files.ReadFile()
+	files.WriteFile("Hello! I'm File!!", "file.txt")
 	login := promptData("Enter login")
 	password := promptData("Enter password")
 	url := promptData("Enter URL")
