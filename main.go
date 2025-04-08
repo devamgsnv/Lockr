@@ -7,18 +7,24 @@ import (
 )
 
 func main() {
-	files.ReadFile()
-	files.WriteFile("Hello! I'm File!!", "file.txt")
+	createAccount()
+}
+
+func createAccount() {
 	login := promptData("Enter login")
 	password := promptData("Enter password")
 	url := promptData("Enter URL")
-	accountGoogle, err := account.NewAccountWithTimeStamp(login, password, url)
+	accountGoogle, err := account.NewAccount(login, password, url)
 	if err != nil {
 		fmt.Println("Incorrect format URL or Login")
 		return
 	}
-	accountGoogle.OutputPassword()
-	fmt.Println(accountGoogle)
+	file, err := accountGoogle.ToBytes()
+	if err != nil {
+		fmt.Println("Data could not be converted in JSON")
+		return
+	}
+	files.WriteFile(file, "data.json")
 }
 
 func promptData(prompt string) string {
