@@ -2,10 +2,12 @@ package main
 
 import (
 	"Lockr/account"
+	"Lockr/files"
 	"fmt"
 )
 
 func main() {
+	files.WriteFile("Hello!", "file.txt")
 	login := promptData("Enter login")
 	password := promptData("Enter password")
 	url := promptData("Enter URL")
