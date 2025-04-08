@@ -1,6 +1,7 @@
 package main
 
 import (
+	"Lockr/account"
 	"fmt"
 )
 
@@ -8,12 +9,12 @@ func main() {
 	login := promptData("Enter login")
 	password := promptData("Enter password")
 	url := promptData("Enter URL")
-	accountGoogle, err := newAccountWithTimeStamp(login, password, url)
+	accountGoogle, err := account.NewAccountWithTimeStamp(login, password, url)
 	if err != nil {
 		fmt.Println("Incorrect format URL or Login")
 		return
 	}
-	accountGoogle.outputPassword()
+	accountGoogle.OutputPassword()
 	fmt.Println(accountGoogle)
 }
 
