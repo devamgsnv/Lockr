@@ -3,25 +3,26 @@ package main
 import (
 	"Lockr/account"
 	"fmt"
+	"github.com/fatih/color"
 )
 
 func main() {
 	fmt.Println("Lockr")
+	vault := account.NewVault()
 Menu:
 	for {
 		option := getMenu()
 		switch option {
 		case 1:
-			createAccount()
+			createAccount(vault)
 		case 2:
-			findAccount()
+			findAccount(vault)
 		case 3:
 			deleteAccount()
 		default:
 			break Menu
 		}
 	}
-	createAccount()
 }
 
 func getMenu() int {
@@ -35,15 +36,22 @@ func getMenu() int {
 	return option
 }
 
-func findAccount() {
-
+func findAccount(vault *account.Vault) {
+	url := promptData("Enter URL for search")
+	accounts := vault.FindAccountsByUrl(url)
+	if len(accounts) == 0 {
+		color.Red("No accounts found")
+	}
+	for _, account := range accounts {
+		account.Output()
+	}
 }
 
 func deleteAccount() {
 
 }
 
-func createAccount() {
+func createAccount(vault *account.Vault) {
 	login := promptData("Enter login")
 	password := promptData("Enter password")
 	url := promptData("Enter URL")
@@ -52,7 +60,7 @@ func createAccount() {
 		fmt.Println("Incorrect format URL or Login")
 		return
 	}
-	vault := account.NewVault()
+
 	vault.AddAccount(*accountGoogle)
 }
 

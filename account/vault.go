@@ -4,6 +4,7 @@ import (
 	"Lockr/files"
 	"encoding/json"
 	"github.com/fatih/color"
+	"strings"
 	"time"
 )
 
@@ -30,6 +31,17 @@ func NewVault() *Vault {
 		}
 	}
 	return &vault
+}
+
+func (vault *Vault) FindAccountsByUrl(url string) []Account {
+	var accounts []Account
+	for _, account := range vault.Accounts {
+		isMatched := strings.Contains(account.Url, url)
+		if isMatched {
+			accounts = append(accounts, account)
+		}
+	}
+	return accounts
 }
 
 func (vault *Vault) AddAccount(acc Account) {
