@@ -1,1 +1,12 @@
-{"accounts":[{"login":"mgsnv@yandex.ru","password":"12345asdf","url":"https://yandex.ru","createdAT":"2025-04-08T17:57:10.9919824+05:00","updatedAt":"2025-04-08T17:57:10.9919824+05:00"},{"login":"a@a.ru","password":"qdHAWkoWOfu3","url":"http://a.ru","createdAT":"2025-04-08T18:40:04.7646478+05:00","updatedAt":"2025-04-08T18:40:04.7646478+05:00"},{"login":"b@b.ru","password":"J2v-aU3CbbI9","url":"https://b.ru","createdAT":"2025-04-08T18:40:45.8689876+05:00","updatedAt":"2025-04-08T18:40:45.8689876+05:00"}],"updatedAt":"2025-04-08T18:40:45.8689876+05:00"}
+{
+  "accounts": [
+    {
+      "login":"a@a.ru",
+      "password":"qdHAWkoWOfu3",
+      "url":"http://a.ru",
+      "createdAT":"2025-04-08T18:40:04.7646478+05:00",
+      "updatedAt":"2025-04-08T18:40:04.7646478+05:00"
+    }
+  ],
+  "updatedAt":"2025-04-09T10:02:37.3598477+05:00"
+}
